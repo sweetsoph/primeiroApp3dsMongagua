@@ -13,7 +13,7 @@ export default function App() {
         />
       </View>
       <View style={styles.bloco}>
-        <Text style={styles.textoBloco}>Valor 2</Text>
+        <Text style={styles.textoBloco}>Valor 1751're36512437654265252541</Text>
         <TextInput 
           style={styles.input}
           keyboardType="numeric"
