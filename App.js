@@ -7,12 +7,23 @@ export default function App() {
   const[valor2, setValor2] = useState();
   const[resultado, setResultado] = useState();
 
-  function somar(){
+  function soma(){
     setResultado (parseFloat(valor1) + parseFloat(valor2));
   }
+  function subtracao(){
+    setResultado (parseFloat(valor1) - parseFloat(valor2));
+  }
+  function multiplicacao(){
+    setResultado (parseFloat(valor1) * parseFloat(valor2));
+  }
+  function divisao(){
+    setResultado (parseFloat(valor1) / parseFloat(valor2));
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.texto}>Olá mundo!</Text>
+      <Text style={styles.texto}>C A L C U L A D O R A</Text>
+      
       <View style={styles.bloco}>
         <Text style={styles.textoBloco}>Valor 1</Text>
         <TextInput 
@@ -31,17 +42,44 @@ export default function App() {
           onChangeText={(texto)=>setValor2(texto)}
         />
       </View>
+      
       <View style={styles.bloco}>
         <TouchableOpacity 
           style={styles.botao}
-          onPress={somar}
+          onPress={soma}
           >
             <Text style={styles.textoBotao}>Somar</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.bloco}>
+        <TouchableOpacity 
+          style={styles.botao}
+          onPress={subtracao}
+          >
+            <Text style={styles.textoBotao}>Subtrair</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.bloco}>
+        <TouchableOpacity 
+          style={styles.botao}
+          onPress={multiplicacao}
+          >
+            <Text style={styles.textoBotao}>Multiplicar</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.bloco}>
+        <TouchableOpacity 
+          style={styles.botao}
+          onPress={divisao}
+          >
+            <Text style={styles.textoBotao}>Dividir</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.bloco}>
             <Text style={styles.textoBloco}>Resultado: {resultado}</Text>
       </View>
+
     </View>
   );
 }
@@ -53,13 +91,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  texto:{
+    fontSize: 45,
+    color: '#DB9344',
+    fontFamily: 'fantasy'
+  },
   textoBloco:{
     fontSize:30,
-    color: '#39b1b8',
-  },
-  texto:{
-    color:'#000',
-    fontSize:30
+    color: '#37259C',
+    fontFamily: 'monospace'
   },
   input:{
     borderColor:'#000',
@@ -73,7 +113,7 @@ const styles = StyleSheet.create({
     marginTop:30
   },
   botao:{
-    backgroundColor:'#39b1b8',
+    backgroundColor:'#DB9344',
     width:'80%',
     textAlign:'center'
   },
